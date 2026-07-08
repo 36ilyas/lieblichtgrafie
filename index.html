@@ -86,7 +86,8 @@
     text-decoration:none; display:flex; align-items:center; gap:10px;
   }
   .nav__dot{ width:11px; height:11px; border-radius:50%; background: var(--terracotta);
-    box-shadow: 14px 0 0 -2px var(--mustard), 28px 0 0 -3px var(--petrol); }
+    box-shadow: 14px 0 0 -2px var(--mustard), 28px 0 0 -3px var(--petrol);
+    margin-right: 30px; flex-shrink:0; }
   .nav__links{ display:flex; gap: clamp(18px, 3vw, 40px); align-items:center; }
   .nav__links a{
     text-decoration:none; font-size:15px; font-weight:600; letter-spacing:.03em;
@@ -98,8 +99,11 @@
   }
   .nav__links a:hover{ color: var(--ink); }
   .nav__links a:hover::after{ width:100%; }
-  .nav__cta{ display:inline-flex !important; padding: 9px 18px; border-radius: 100px;
-    background: var(--ink); color: var(--paper) !important; }
+  .nav__links a.nav__cta{ display:inline-flex; align-items:center; justify-content:center;
+    padding: 11px 26px; border-radius: 100px; line-height: 1;
+    background: var(--ink); color: var(--paper);
+    transition: background .3s ease; }
+  .nav__links a.nav__cta:hover{ color: var(--paper); background: var(--terracotta); }
   .nav__cta::after{ display:none; }
   @media(max-width:680px){
     .nav__links a:not(.nav__cta){ display:none; }
@@ -240,6 +244,7 @@
   .work__media:hover{ transform: scale(1.035); box-shadow: 0 40px 80px -30px rgba(58,50,42,.55); }
   .work__media img, .about__portrait img{
     display:block; width:100%; height:100%; object-fit: cover;
+    object-position: 50% 30%;
   }
   .work__media .ph-note{
     position:absolute; left:16px; bottom:14px; z-index:3;
@@ -384,8 +389,8 @@
   <nav class="nav" id="nav">
     <a href="#top" class="nav__brand"><span class="nav__dot"></span>Lieblichtgrafie</a>
     <div class="nav__links">
-      <a href="#werke">Werke</a>
       <a href="#ueber">Über</a>
+      <a href="#werke">Werke</a>
       <a href="#kontakt" class="nav__cta">Kontakt</a>
     </div>
   </nav>
@@ -561,8 +566,8 @@
     <div class="wrap footer__row">
       <div class="footer__brand">Lieblicht<span>grafie</span></div>
       <div class="footer__links">
-        <a href="#werke">Werke</a>
         <a href="#ueber">Über</a>
+        <a href="#werke">Werke</a>
         <a href="#kontakt">Kontakt</a>
         <a href="https://www.instagram.com/lieblichtgrafie" target="_blank" rel="noopener">Instagram</a>
       </div>
