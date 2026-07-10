@@ -88,14 +88,14 @@
     line-height: 0;
   }
   .nav__logo{
-    height: 96px; width: auto; display:block;
+    height: 118px; width: auto; display:block;
     transition: transform .5s cubic-bezier(.2,.7,.2,1);
   }
   .nav__brand:hover .nav__logo{ transform: rotate(-3deg) scale(1.04); }
-  .nav.solid .nav__logo{ height: 72px; transition: height .4s ease, transform .5s ease; }
+  .nav.solid .nav__logo{ height: 84px; transition: height .4s ease, transform .5s ease; }
   @media(max-width:680px){
-    .nav__logo{ height: 68px; }
-    .nav.solid .nav__logo{ height: 56px; }
+    .nav__logo{ height: 84px; }
+    .nav.solid .nav__logo{ height: 66px; }
   }
   .nav__links{ display:flex; gap: clamp(18px, 3vw, 40px); align-items:center; }
   .nav__links a{
@@ -304,18 +304,20 @@
     position: relative;
     overflow: hidden;
   }
-  /* Rose-Blob, der den Hero-Blob visuell fortsetzt (Kreis-Vervollständigung) */
+  /* Rose-Blob als echte Fortsetzung des Hero-Blobs — identische Dimensionen wie .blob.b2,
+     nur nach unten spiegelnd positioniert, sodass die zwei Hälften eine visuelle Einheit bilden.
+     Chau's Portrait bleibt darüber und deckt den überlappenden Bereich sauber ab. */
   .about::before{
     content:""; position:absolute; pointer-events:none;
     width: 34vmax; height: 34vmax;
-    top: -16vmax; left: -26vmax;
-    background: radial-gradient(circle at 55% 55%, var(--rose), color-mix(in srgb, var(--rose) 25%, transparent) 70%);
+    top: -22vmax; left: -9vmax;
+    background: radial-gradient(circle at 50% 50%, var(--rose), color-mix(in srgb, var(--rose) 25%, transparent) 70%);
     border-radius: 60% 40% 44% 56% / 48% 60% 40% 52%;
     filter: blur(8px);
-    opacity: .95;
+    opacity: .85;
     mix-blend-mode: multiply;
     z-index: 0;
-    animation: drift2 32s ease-in-out infinite reverse;
+    animation: drift2 32s ease-in-out infinite;
   }
   @media (prefers-reduced-motion: reduce){ .about::before{ animation:none; } }
   /* Botanischer Zweig unten-rechts bleibt */
@@ -326,14 +328,18 @@
     bottom: 40px; right: 3vw; transform: rotate(160deg);
   }
   .about__grid{ position:relative; z-index:1; }
-  @media(max-width: 820px){ .about::before{ width: 60vmax; height: 60vmax; top: -30vmax; left: -35vmax; opacity: .45; } .about::after{ display:none; } }
+  @media(max-width: 820px){
+    /* Auf Mobile: Blob dezenter und nach links weggeschoben, damit's neben dem großen Portrait passt */
+    .about::before{ width: 90vmax; height: 90vmax; top: -60vmax; left: -55vmax; opacity: .5; }
+    .about::after{ display:none; }
+  }
   .about__grid{
     display:grid; grid-template-columns: 0.85fr 1.15fr; gap: clamp(40px, 7vw, 96px);
     align-items:center;
   }
   .about__portrait{
     aspect-ratio: 4/5; border-radius: 60% 40% 42% 58% / 55% 50% 50% 45%;
-    position:relative; overflow:hidden;
+    position:relative; overflow:hidden; z-index: 2;
     box-shadow: var(--shadow-tint);
     background:
       radial-gradient(circle at 32% 26%, var(--mustard), transparent 55%),
