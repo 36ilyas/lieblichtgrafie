@@ -10,9 +10,9 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
 <style>
   :root{
-    /* gebrochenes Weiß / Leinwand */
-    --paper:        #f5eee1;
-    --paper-deep:   #efe6d4;
+    /* gebrochenes Weiß mit leichtem Blush-Ton */
+    --paper:        #f8ebe0;
+    --paper-deep:   #f0dccf;
     --ink:          #3a322a;
     --ink-soft:     #6b5f51;
     /* sattelfarbene Palette */
@@ -62,7 +62,7 @@
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
   }
 
-  ::selection{ background: var(--mustard); color: var(--ink); }
+  ::selection{ background: var(--blush-deep); color: var(--ink); }
 
   a{ color: inherit; }
 
@@ -104,7 +104,7 @@
   }
   .nav__links a::after{
     content:""; position:absolute; left:0; bottom:-2px; height:2px; width:0;
-    background: var(--terracotta); transition: width .35s cubic-bezier(.2,.7,.2,1);
+    background: var(--rose-d); transition: width .35s cubic-bezier(.2,.7,.2,1);
   }
   .nav__links a:hover{ color: var(--ink); }
   .nav__links a:hover::after{ width:100%; }
@@ -134,7 +134,7 @@
     background: radial-gradient(circle at 40% 40%, var(--mustard), color-mix(in srgb,var(--mustard) 40%, transparent) 70%);
     animation: drift1 26s ease-in-out infinite; }
   .blob.b2{ width: 34vmax; height: 34vmax; bottom:-12vmax; left:-9vmax;
-    background: radial-gradient(circle at 50% 50%, var(--petrol), color-mix(in srgb,var(--petrol) 25%, transparent) 70%);
+    background: radial-gradient(circle at 50% 50%, var(--rose), color-mix(in srgb,var(--rose) 25%, transparent) 70%);
     border-radius: 60% 40% 44% 56% / 48% 60% 40% 52%;
     animation: drift2 32s ease-in-out infinite; }
   .blob.b3{ width: 22vmax; height: 22vmax; top:30%; left:46%;
@@ -178,7 +178,11 @@
     margin: 0;
   }
   .hero h1 .ln{ display:block; }
-  .hero h1 em{ font-style: italic; font-weight:500; color: var(--terracotta); }
+  .hero h1 em{ font-style: italic; font-weight:500;
+    background: linear-gradient(135deg, var(--rose-d) 0%, var(--terracotta) 60%);
+    -webkit-background-clip: text; background-clip: text;
+    -webkit-text-fill-color: transparent; color: transparent;
+  }
   .hero__sub{
     font-family: var(--font-display);
     font-style: italic;
@@ -187,7 +191,7 @@
     margin-top: 18px;
     display:flex; align-items:center; gap:18px; flex-wrap:wrap;
   }
-  .squiggle{ display:block; width: clamp(120px, 22vw, 240px); color: var(--mustard); }
+  .squiggle{ display:block; width: clamp(120px, 22vw, 240px); color: var(--rose-d); }
   .squiggle path{ stroke-dasharray: 600; stroke-dashoffset: 600; animation: draw 2.2s ease .5s forwards; }
   @keyframes draw{ to{ stroke-dashoffset:0; } }
   @media (prefers-reduced-motion: reduce){ .squiggle path{ stroke-dashoffset:0; animation:none; } }
@@ -204,7 +208,7 @@
   }
   .scroll-ind .mouse{ width:24px; height:38px; border:2px solid var(--ink-soft); border-radius:14px; position:relative; }
   .scroll-ind .mouse::after{ content:""; position:absolute; top:7px; left:50%; transform:translateX(-50%);
-    width:4px; height:8px; border-radius:3px; background: var(--terracotta); animation: wheel 1.8s ease-in-out infinite; }
+    width:4px; height:8px; border-radius:3px; background: var(--rose-d); animation: wheel 1.8s ease-in-out infinite; }
   @keyframes wheel{ 0%{ opacity:0; transform:translate(-50%,0);} 30%{opacity:1;} 70%{opacity:1;} 100%{ opacity:0; transform:translate(-50%,12px);} }
 
   /* =================  SECTION SHARED  ================= */
@@ -222,7 +226,7 @@
   /* =================  ÜBER  ================= */
   .about{
     padding: clamp(90px, 13vw, 170px) 0;
-    background: linear-gradient(180deg, transparent 0%, color-mix(in srgb, var(--blush) 55%, transparent) 40%, color-mix(in srgb, var(--blush) 55%, transparent) 60%, transparent 100%);
+    background: linear-gradient(180deg, transparent 0%, color-mix(in srgb, var(--blush) 78%, transparent) 30%, color-mix(in srgb, var(--blush) 78%, transparent) 70%, transparent 100%);
     position: relative;
   }
   .about::before, .about::after{
@@ -258,7 +262,7 @@
   .about h2 em{ font-style:italic; color: var(--rose-d); }
   .about p{ color: var(--ink-soft); margin: 0 0 18px; max-width: 56ch; }
   .about .sign{
-    font-family: var(--font-display); font-style:italic; font-size: 34px; color: var(--terracotta);
+    font-family: var(--font-display); font-style:italic; font-size: 34px; color: var(--rose-d);
     margin-top: 28px; display:inline-flex; align-items:center; gap:18px;
   }
   .about .sign::after{
@@ -381,7 +385,7 @@
     display:grid; grid-template-columns: 0.9fr 1.1fr; gap: clamp(36px, 6vw, 80px); align-items:center;
   }
   .contact__card::before{ content:""; position:absolute; width:30vmax; height:30vmax; right:-10vmax; top:-12vmax;
-    background: radial-gradient(circle, var(--mustard), transparent 65%); opacity:.5; mix-blend-mode:multiply; }
+    background: radial-gradient(circle, var(--rose), transparent 65%); opacity:.55; mix-blend-mode:multiply; }
   .contact__card::after{
     content:""; position:absolute; inset:0; z-index:0; pointer-events:none;
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 160 160'%3E%3Cg fill='%23c47f87' fill-opacity='.14'%3E%3Cg transform='translate(20 24)'%3E%3Cellipse cx='16' cy='6' rx='3.6' ry='5'/%3E%3Cellipse cx='24' cy='11' rx='3.6' ry='5' transform='rotate(72 24 11)'/%3E%3Cellipse cx='21' cy='23' rx='3.6' ry='5' transform='rotate(144 21 23)'/%3E%3Cellipse cx='11' cy='23' rx='3.6' ry='5' transform='rotate(216 11 23)'/%3E%3Cellipse cx='8' cy='11' rx='3.6' ry='5' transform='rotate(288 8 11)'/%3E%3C/g%3E%3Cg transform='translate(108 96)'%3E%3Cellipse cx='16' cy='6' rx='3.6' ry='5'/%3E%3Cellipse cx='24' cy='11' rx='3.6' ry='5' transform='rotate(72 24 11)'/%3E%3Cellipse cx='21' cy='23' rx='3.6' ry='5' transform='rotate(144 21 23)'/%3E%3Cellipse cx='11' cy='23' rx='3.6' ry='5' transform='rotate(216 11 23)'/%3E%3Cellipse cx='8' cy='11' rx='3.6' ry='5' transform='rotate(288 8 11)'/%3E%3C/g%3E%3C/g%3E%3Cg fill='%23d99a2b' fill-opacity='.14'%3E%3Ccircle cx='36' cy='39' r='2.4'/%3E%3Ccircle cx='124' cy='111' r='2.4'/%3E%3C/g%3E%3C/svg%3E");
@@ -394,8 +398,8 @@
   .contact__intro h2 em{ font-style:italic; color: var(--rose-d); }
   .contact__intro p{ color: var(--ink-soft); max-width: 38ch; }
   .contact__intro .detail{ margin-top: 26px; display:flex; flex-direction:column; gap:8px; font-weight:600; }
-  .contact__intro .detail a{ text-decoration:none; color: var(--petrol-d); }
-  .contact__intro .detail a:hover{ color: var(--terracotta); }
+  .contact__intro .detail a{ text-decoration:none; color: var(--rose-d); }
+  .contact__intro .detail a:hover{ color: var(--terracotta-d); }
 
   form{ position:relative; z-index:2; display:flex; flex-direction:column; gap:18px; }
   .field{ position:relative; }
@@ -406,8 +410,8 @@
     background: var(--paper); border: 1.5px solid color-mix(in srgb, var(--ink) 14%, transparent);
     border-radius: 12px; padding: 13px 15px; transition: border-color .3s, box-shadow .3s; resize:vertical;
   }
-  .field input:focus, .field textarea:focus{ outline:none; border-color: var(--terracotta);
-    box-shadow: 0 0 0 4px color-mix(in srgb, var(--terracotta) 18%, transparent); }
+  .field input:focus, .field textarea:focus{ outline:none; border-color: var(--rose-d);
+    box-shadow: 0 0 0 4px color-mix(in srgb, var(--rose-d) 22%, transparent); }
   .field textarea{ min-height: 120px; }
   .submit{
     align-self:flex-start; margin-top:4px; cursor:pointer;
@@ -434,9 +438,9 @@
   .confirm h3{ font-size: clamp(32px,5vw,46px); }
   .confirm p{ color: var(--ink-soft); max-width: 32ch; margin:0; }
   .check{ width: 96px; height:96px; }
-  .check circle{ stroke: var(--petrol); stroke-width:4; fill: color-mix(in srgb,var(--petrol) 12%, transparent);
+  .check circle{ stroke: var(--rose-d); stroke-width:4; fill: color-mix(in srgb,var(--rose) 18%, transparent);
     stroke-dasharray: 300; stroke-dashoffset: 300; }
-  .check path{ stroke: var(--petrol); stroke-width:6; fill:none; stroke-linecap:round; stroke-linejoin:round;
+  .check path{ stroke: var(--rose-d); stroke-width:6; fill:none; stroke-linecap:round; stroke-linejoin:round;
     stroke-dasharray: 90; stroke-dashoffset: 90; }
   .confirm.show .check circle{ animation: draw-c 0.7s ease forwards; }
   .confirm.show .check path{ animation: draw-c 0.5s ease .55s forwards; }
